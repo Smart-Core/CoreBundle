@@ -12,7 +12,7 @@ trait IsDeleted
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean", options={"default":0})
+     * @ORM\Column(type="boolean", nullable=true, options={"default":0})
      */
     protected $is_deleted;
 

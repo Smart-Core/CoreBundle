@@ -2,6 +2,8 @@
 
 namespace Smart\CoreBundle\Doctrine\ColumnTrait;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Position column
  */
@@ -10,7 +12,7 @@ trait Position
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", options={"default":0})
      * @Assert\Range(min = "0", max = "255")
      */
     protected $position;

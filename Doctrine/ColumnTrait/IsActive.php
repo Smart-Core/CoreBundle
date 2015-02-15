@@ -12,7 +12,7 @@ trait IsActive
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean", options={"default":1})
+     * @ORM\Column(type="boolean", nullable=true, options={"default":1})
      */
     protected $is_active;
 
