@@ -12,7 +12,7 @@ trait Position
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint", options={"default":0})
+     * @ORM\Column(type="smallint", nullable=true, options={"default":0})
      * @Assert\Range(min = "0", max = "255")
      */
     protected $position;
