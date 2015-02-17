@@ -23,7 +23,9 @@ class TwigClearCacheCommand extends ContainerAwareCommand
 
         $output->write('- <comment>Clearing twig template cache files... </comment> ');
 
-        $twig->clearCacheFiles();
+        if (file_exists($twig->getCache())) {
+            $twig->clearCacheFiles();
+        }
 
         $output->writeln('<info>OK</info>');
     }
