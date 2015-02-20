@@ -42,4 +42,12 @@ trait IsActive
     {
         return $this->is_active;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isNotActive()
+    {
+        return !$this->is_active;
+    }
 }
