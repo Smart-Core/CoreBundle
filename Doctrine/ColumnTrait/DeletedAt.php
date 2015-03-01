@@ -28,7 +28,7 @@ trait DeletedAt
      * @param \DateTime $deleted_at
      * @return $this
      */
-    public function setDeletedAt($deleted_at)
+    public function setDeletedAt(\DateTime $deleted_at = null)
     {
         $this->deleted_at = $deleted_at;
 
