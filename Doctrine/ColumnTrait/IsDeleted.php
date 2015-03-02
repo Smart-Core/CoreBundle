@@ -12,7 +12,7 @@ trait IsDeleted
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean", nullable=true, options={"default":0})
+     * @ORM\Column(type="boolean", options={"default":0})
      */
     protected $is_deleted;
 
@@ -22,7 +22,7 @@ trait IsDeleted
      */
     public function setIsDeleted($is_deleted)
     {
-        $this->is_deleted = $is_deleted;
+        $this->is_deleted = empty($is_deleted) ? false : true;
 
         return $this;
     }
