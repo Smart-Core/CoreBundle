@@ -41,7 +41,7 @@ trait OutputWritelnTrait
     protected function outputWriteln($messages = '')
     {
         if ($this->input instanceof InputInterface and $this->output instanceof OutputInterface) {
-            $this->input->getOption('v') ? $this->output->writeln($messages) : null;
+            $this->input->getOption('verbose') ? $this->output->writeln($messages) : null;
         }
     }
 }
