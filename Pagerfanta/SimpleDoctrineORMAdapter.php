@@ -7,6 +7,8 @@ use Pagerfanta\Adapter\AdapterInterface;
 use Pagerfanta\Adapter\DoctrineORM\Paginator as LegacyPaginator;
 
 /**
+ * Используется только с "pagerfanta/pagerfanta": "v1.0.1",
+ *
  * Copy of \Pagerfanta\Adapter\DoctrineORMAdapter with force LegacyPaginator
  */
 class SimpleDoctrineORMAdapter implements AdapterInterface
