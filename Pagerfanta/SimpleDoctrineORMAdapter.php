@@ -4,17 +4,12 @@ namespace Smart\CoreBundle\Pagerfanta;
 
 use Doctrine\ORM\Query;
 use Pagerfanta\Adapter\AdapterInterface;
-use Pagerfanta\Adapter\DoctrineORM\Paginator as LegacyPaginator;
+use Smart\CoreBundle\Pagerfanta\DoctrineORM\LegacyPaginator;
 
-/**
- * Используется только с "pagerfanta/pagerfanta": "v1.0.1",
- *
- * Copy of \Pagerfanta\Adapter\DoctrineORMAdapter with force LegacyPaginator
- */
 class SimpleDoctrineORMAdapter implements AdapterInterface
 {
     /**
-     * @var \Pagerfanta\Adapter\DoctrineORM\Paginator
+     * @var LegacyPaginator
      */
     protected $paginator;
 
