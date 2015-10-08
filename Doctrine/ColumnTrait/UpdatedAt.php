@@ -18,6 +18,7 @@ trait UpdatedAt
 
     /**
      * @param \DateTime $updated_at
+     *
      * @return $this
      */
     public function setUpdatedAt(\DateTime $updated_at = null)
