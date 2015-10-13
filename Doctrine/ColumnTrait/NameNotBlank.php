@@ -3,17 +3,19 @@
 namespace Smart\CoreBundle\Doctrine\ColumnTrait;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Name column
  * @author Gusakov Nikita <dev@nkt.me>
  */
-trait NameUnique
+trait NameNotBlank
 {
     /**
      * @var string
      *
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", nullable=false)
+     * @Assert\NotBlank()
      */
     protected $name;
 
