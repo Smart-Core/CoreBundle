@@ -12,12 +12,14 @@ trait Name
 {
     /**
      * @var string
+     *
      * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
      * @see getName
+     *
      * @return string
      */
     public function __toString()
