@@ -11,6 +11,7 @@ trait Phone
 {
     /**
      * @var string
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     protected $phone;
@@ -30,7 +31,7 @@ trait Phone
      */
     public function setPhone($phone)
     {
-        $this->phone = $phone;
+        $this->phone = trim($phone);
 
         return $this;
     }

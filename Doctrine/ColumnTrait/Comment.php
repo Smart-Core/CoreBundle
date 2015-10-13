@@ -29,7 +29,7 @@ trait Comment
      */
     public function setComment($comment)
     {
-        $this->comment = $comment;
+        $this->comment = trim($comment);
 
         return $this;
     }

@@ -19,6 +19,7 @@ trait Position
 
     /**
      * @param int $position
+     *
      * @return $this
      */
     public function setPosition($position)

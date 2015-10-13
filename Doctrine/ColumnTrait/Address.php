@@ -30,7 +30,7 @@ trait Address
      */
     public function setAddress($address)
     {
-        $this->address = $address;
+        $this->address = trim($address);
 
         return $this;
     }

@@ -12,21 +12,22 @@ trait Text
     protected $text;
 
     /**
-     * @param string $text
-     * @return $this
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * @param string $text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->text = trim($text);
+
+        return $this;
     }
 }

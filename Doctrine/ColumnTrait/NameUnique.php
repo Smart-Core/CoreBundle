@@ -42,7 +42,7 @@ trait NameUnique
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = trim($name);
 
         return $this;
     }

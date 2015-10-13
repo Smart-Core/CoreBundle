@@ -38,7 +38,7 @@ trait EmailUnique
      */
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->email = trim($email);
 
         return $this;
     }

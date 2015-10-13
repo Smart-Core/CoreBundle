@@ -11,20 +11,10 @@ trait Title
 {
     /**
      * @var string
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     protected $title;
-
-    /**
-     * @param string $title
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
 
     /**
      * @return string
@@ -32,5 +22,17 @@ trait Title
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param string $title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->title = trim($title);
+
+        return $this;
     }
 }
