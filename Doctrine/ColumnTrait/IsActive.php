@@ -36,6 +36,14 @@ trait IsActive
     }
 
     /**
+     * @return string
+     */
+    public function getIsActiveAsText()
+    {
+        return $this->is_active ? 'Yes' : 'No';
+    }
+
+    /**
      * @return boolean
      */
     public function isActive()

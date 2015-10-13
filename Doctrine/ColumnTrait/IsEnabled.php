@@ -34,6 +34,14 @@ trait IsEnabled
     }
 
     /**
+     * @return string
+     */
+    public function getIsEnabledAsText()
+    {
+        return $this->is_enabled ? 'Yes' : 'No';
+    }
+
+    /**
      * @return bool
      */
     public function isEnabled()

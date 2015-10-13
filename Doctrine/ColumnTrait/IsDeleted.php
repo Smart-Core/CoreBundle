@@ -18,6 +18,7 @@ trait IsDeleted
 
     /**
      * @param boolean $is_deleted
+     *
      * @return $this
      */
     public function setIsDeleted($is_deleted)
@@ -33,6 +34,14 @@ trait IsDeleted
     public function getIsDeleted()
     {
         return $this->is_deleted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsDeletedAsText()
+    {
+        return $this->is_deleted ? 'Yes' : 'No';
     }
 
     /**
