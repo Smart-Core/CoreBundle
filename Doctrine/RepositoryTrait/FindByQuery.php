@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace Smart\CoreBundle\Doctrine\RepositoryTrait;
 
