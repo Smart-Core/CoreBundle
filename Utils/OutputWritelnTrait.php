@@ -13,8 +13,12 @@ trait OutputWritelnTrait
     /** @var OutputInterface */
     protected $output;
 
+    /** @var int */
+    protected $startTime;
+
     /**
      * @param InputInterface $input
+     *
      * @return $this
      */
     public function setInput(InputInterface $input)
@@ -26,6 +30,7 @@ trait OutputWritelnTrait
 
     /**
      * @param OutputInterface $output
+     *
      * @return $this
      */
     public function setOutput(OutputInterface $output)
@@ -43,5 +48,14 @@ trait OutputWritelnTrait
         if ($this->input instanceof InputInterface and $this->output instanceof OutputInterface) {
             $this->input->getOption('verbose') ? $this->output->writeln($messages) : null;
         }
+    }
+
+    protected function writeProfileInfo()
+    {
+        $this->outputWriteln("
+    End at: ".date('H:i:s')."
+    Tolal memory usage: ".(memory_get_usage(true) / 1024 / 1024) .'MB (peak: '.(memory_get_peak_usage(true) / 1024 / 1024) ."MB)
+    Total time: <comment>".sprintf('%.4f', microtime(true) - $this->startTime) . "</comment> seconds\n"
+        );
     }
 }
