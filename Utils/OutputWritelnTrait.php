@@ -54,8 +54,8 @@ trait OutputWritelnTrait
     {
         $this->outputWriteln("
     End at: ".date('H:i:s')."
-    Tolal memory usage: ".(memory_get_usage(true) / 1024 / 1024) .'MB (peak: '.(memory_get_peak_usage(true) / 1024 / 1024) ."MB)
-    Total time: <comment>".sprintf('%.4f', microtime(true) - $this->startTime) . "</comment> seconds\n"
+    Memory: ".(memory_get_usage(true) / 1024 / 1024) .'MB (peak: '.(memory_get_peak_usage(true) / 1024 / 1024) ."MB)
+    Time:   <comment>".sprintf('%.4f', microtime(true) - $this->startTime) . "</comment> seconds\n"
         );
     }
 }
