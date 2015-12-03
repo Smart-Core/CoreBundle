@@ -21,6 +21,7 @@ class ScriptHandler extends SymfonyScriptHandler
 
         try {
             static::executeCommand($event, $appDir, 'doctrine:schema:update', $options['process-timeout']);
+            static::executeCommand($event, $appDir, 'doctrine:schema:validate', $options['process-timeout']);
         } catch (\RuntimeException $e) {
             // do nothing
         }
