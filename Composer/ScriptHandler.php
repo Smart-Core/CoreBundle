@@ -2,7 +2,7 @@
 
 namespace Smart\CoreBundle\Composer;
 
-use Composer\Script\CommandEvent;
+use Composer\Script\Event;
 use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as SymfonyScriptHandler;
 
 class ScriptHandler extends SymfonyScriptHandler
@@ -10,7 +10,7 @@ class ScriptHandler extends SymfonyScriptHandler
     /**
      * @param $event CommandEvent A instance
      */
-    public static function doctrineSchemaCheck(CommandEvent $event)
+    public static function doctrineSchemaCheck(Event $event)
     {
         $options = parent::getOptions($event);
         $appDir = $options['symfony-app-dir'];
@@ -21,6 +21,7 @@ class ScriptHandler extends SymfonyScriptHandler
 
         try {
             static::executeCommand($event, $appDir, 'doctrine:schema:update', $options['process-timeout']);
+            static::executeCommand($event, $appDir, 'doctrine:schema:validate', $options['process-timeout']);
         } catch (\RuntimeException $e) {
             // do nothing
         }
