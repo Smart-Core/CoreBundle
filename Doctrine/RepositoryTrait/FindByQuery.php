@@ -21,10 +21,25 @@ trait FindByQuery
         if (!empty($criteria)) {
             foreach ($criteria as $field => $value) {
                 if ($firstCriteria) {
-                    $qb->where("e.$field = :$field");
+                    if ($value === null or $value === 'null') {
+                        $qb->where("e.$field IS NULL");
+                    } elseif ($value === 'not null') {
+                        $qb->where("e.$field IS NOT NULL");
+                    } else {
+                        $qb->where("e.$field = :$field");
+                        $qb->setParameter($field, $value);
+                    }
+
                     $firstCriteria = false;
                 } else {
-                    $qb->andWhere("e.$field = :$field");
+                    if ($value === null or $value === 'null') {
+                        $qb->andWhere("e.$field IS NULL");
+                    } elseif ($value === 'not null') {
+                        $qb->andWhere("e.$field IS NOT NULL");
+                    } else {
+                        $qb->andWhere("e.$field = :$field");
+                        $qb->setParameter($field, $value);
+                    }
                 }
 
                 $qb->setParameter($field, $value);
