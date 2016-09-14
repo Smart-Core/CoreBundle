@@ -12,13 +12,11 @@ use Symfony\Component\Config\Definition\Builder\NodeParentInterface;
  */
 class Bundle extends BaseBundle implements ConfigurableBundleInterface
 {
-    /*
     public function build(ContainerBuilder $container)
     {
         $container->addCompilerPass(new Compiler\RemoveUnavailableServicesPass);
         $container->addCompilerPass(new Compiler\RegisterTwigExtensionsPass($this));
     }
-    */
 
     public function getContainerExtension()
     {
