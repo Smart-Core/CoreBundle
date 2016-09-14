@@ -2,20 +2,18 @@
 
 namespace Smart\CoreBundle\Doctrine\RepositoryTrait;
 
-trait FindByQuery
+trait CountBy
 {
     /**
      * @param array|null $criteria
-     * @param array|null $orderBy
-     * @param int|null   $limit
-     * @param int|null   $offset
      *
-     * @return \Doctrine\ORM\Query
+     * @return int
      */
-    public function getFindByQuery(array $criteria = null, array $orderBy = null, $limit = null, $offset = null)
+    public function countBy(array $criteria = null)
     {
         /** @var \Doctrine\ORM\QueryBuilder $qb */
         $qb = $this->createQueryBuilder('e');
+        $qb->select('count(e.id)');
 
         $firstCriteria = true;
         if (!empty($criteria)) {
@@ -41,31 +39,9 @@ trait FindByQuery
                         $qb->setParameter($field, $value);
                     }
                 }
-
-                $qb->setParameter($field, $value);
             }
         }
 
-        $firstOrderBy = true;
-        if (!empty($orderBy)) {
-            foreach ($orderBy as $field => $value) {
-                if ($firstOrderBy) {
-                    $qb->orderBy("e.$field", $value);
-                    $firstOrderBy = false;
-                } else {
-                    $qb->addOrderBy("e.$field", $value);
-                }
-            }
-        }
-
-        if (!empty($limit)) {
-            $qb->setMaxResults($limit);
-        }
-
-        if (!empty($offset)) {
-            $qb->setFirstResult($offset);
-        }
-
-        return $qb->getQuery();
+        return $qb->getQuery()->getSingleScalarResult();
     }
 }
