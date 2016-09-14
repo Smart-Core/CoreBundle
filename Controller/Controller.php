@@ -2,6 +2,7 @@
 
 namespace Smart\CoreBundle\Controller;
 
+use Smart\CoreBundle\Flash\Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -63,7 +64,9 @@ class Controller extends BaseController
 
     protected function addFlash($type, $message = null, array $parameters = [], $pluralization = null)
     {
-        return $this->getSession()->addFlash($type, $message, $parameters, $pluralization);
+        $message = $message ?: sprintf('%s.%s', $this->get('request_stack')->getMasterRequest()->attributes->get('_route'), $type);
+
+        return $this->getSession()->getFlashBag()->add($type, new Message($message, $parameters, $pluralization));
     }
 
     protected function getFlashBag()
