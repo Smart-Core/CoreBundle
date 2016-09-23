@@ -73,4 +73,13 @@ class Controller extends BaseController
     {
         return $this->getSession()->getFlashBag();
     }
+
+    protected function getFlash($type, $default = null)
+    {
+        if ($this->getSession()->getFlashBag()->has($type)) {
+            return $this->getSession()->getFlashBag()->get($type);
+        }
+
+        return $default;
+    }
 }
