@@ -48,6 +48,18 @@ class Controller extends BaseController
         }
     }
 
+    /**
+     * Gets the repository for an entity class.
+     *
+     * @param string $entityName The name of the entity.
+     *
+     * @return \Doctrine\ORM\EntityRepository The repository class.
+     */
+    protected function getRepository($entityName)
+    {
+        return $this->get('doctrine.orm.entity_manager')->getRepository($entityName);
+    }
+
     // Security
 
     protected function isGranted($attributes, $object = null)
