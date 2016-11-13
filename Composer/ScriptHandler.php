@@ -8,12 +8,12 @@ use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as SymfonyScriptHand
 class ScriptHandler extends SymfonyScriptHandler
 {
     /**
-     * @param $event CommandEvent A instance
+     * @param $event Event A instance
      */
     public static function doctrineSchemaCheck(Event $event)
     {
         $options = parent::getOptions($event);
-        $appDir = $options['symfony-app-dir'];
+        $appDir = $options['symfony-bin-dir'];
 
         if (null === $appDir) {
             return;
