@@ -41,8 +41,6 @@ trait FindByQuery
                         $qb->setParameter($field, $value);
                     }
                 }
-
-                $qb->setParameter($field, $value);
             }
         }
 
