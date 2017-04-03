@@ -23,6 +23,9 @@ class SmartCoreExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
+
         foreach ($config['detect'] as $type => $isActivated) {
             $container->setParameter('knp_rad.detect.'.$type, $isActivated);
         }
