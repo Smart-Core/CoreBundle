@@ -5,6 +5,7 @@ namespace Smart\CoreBundle\Form;
 use Doctrine\DBAL\Types\TimeType;
 use Genemu\Bundle\FormBundle\Form\JQuery\Type\FileType;
 use JMS\DiExtraBundle\Annotation\FormType;
+use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -117,6 +118,9 @@ trait TypeResolverTtait
                     break;
                 case 'submit':
                     $type = SubmitType::class;
+                    break;
+                case 'tel':
+                    $type = PhoneNumberType::class;
                     break;
                 case 'text':
                     $type = TextType::class;
