@@ -54,7 +54,17 @@ class Controller extends BaseController
         return $this->get('session');
     }
 
-    protected function addFlash($type, $message = null, array $parameters = [], $pluralization = null)
+    /**
+     * @param       $type
+     * @param null  $message
+     * @param array $parameters
+     * @param null  $pluralization
+     *
+     * @return mixed
+     *
+     * @deprecated
+     */
+    protected function addFlashAdvanced($type, $message = null, array $parameters = [], $pluralization = null)
     {
         if (!$this->container->has('session')) {
             throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
