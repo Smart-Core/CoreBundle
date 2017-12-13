@@ -80,6 +80,7 @@ trait TypeResolverTtait
                 case 'hidden':
                     $type = HiddenType::class;
                     break;
+                case 'int':
                 case 'integer':
                     $type = IntegerType::class;
                     break;
@@ -122,6 +123,7 @@ trait TypeResolverTtait
                 case 'tel':
                     $type = PhoneNumberType::class;
                     break;
+                case 'string':
                 case 'text':
                     $type = TextType::class;
                     break;
