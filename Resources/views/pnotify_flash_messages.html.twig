@@ -2,7 +2,7 @@
 {% if app.session.flashbag.has('error') %}
     {% for flashMessage in app.session.flashbag.get('error') %}
         <script>
-            $(function () {
+            document.addEventListener("DOMContentLoaded", function(event) {
                 new PNotify({
                     title: '{{ 'Error'|trans }}!',
                     text: '{{ flashMessage|raw }}',
@@ -17,7 +17,7 @@
 {% if app.session.flashbag.has('notice') %}
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <script>
-            $(function () {
+            document.addEventListener("DOMContentLoaded", function(event) {
                 new PNotify({
                     title: '{{ 'Information'|trans }}!',
                     text: '{{ flashMessage|raw }}',
@@ -32,7 +32,7 @@
 {% if app.session.flashbag.has('warning') %}
     {% for flashMessage in app.session.flashbag.get('warning') %}
         <script>
-            $(function () {
+            document.addEventListener("DOMContentLoaded", function(event) {
                 new PNotify({
                     title: '{{ 'Information'|trans }}!',
                     text: '{{ flashMessage|raw }}'
@@ -46,7 +46,7 @@
 {% if app.session.flashbag.has('success') %}
     {% for flashMessage in app.session.flashbag.get('success') %}
         <script>
-            $(function () {
+            document.addEventListener("DOMContentLoaded", function(event) {
                 new PNotify({
                     title: '{{ 'Success'|trans }}!',
                     text: '{{ flashMessage|raw }}',
