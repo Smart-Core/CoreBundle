@@ -47,6 +47,7 @@ trait TypeResolverTtait
                 case 'button':
                     $type = ButtonType::class;
                     break;
+                case 'bool':
                 case 'checkbox':
                     $type = CheckboxType::class;
                     break;
