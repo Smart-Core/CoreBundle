@@ -2,7 +2,9 @@
 
 namespace Smart\CoreBundle\Twig;
 
-class JsonDecodeExtension extends \Twig_Extension
+use Twig\Extension\AbstractExtension;
+
+class JsonDecodeExtension extends AbstractExtension
 {
     /**
      * @return string
