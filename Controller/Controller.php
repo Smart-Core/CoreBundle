@@ -3,10 +3,13 @@
 namespace Smart\CoreBundle\Controller;
 
 use Smart\CoreBundle\Flash\Message;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as BaseController;
+//use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 
 /**
  * Inspired by KnpRadBundle
+ *
+ * deprecated
  */
 class Controller extends BaseController
 {
@@ -87,5 +90,15 @@ class Controller extends BaseController
         }
 
         return $default;
+    }
+
+    /**
+     * Gets a container configuration parameter by its name.
+     *
+     * @return mixed
+     */
+    protected function getParameter(string $name)
+    {
+        return $this->container->getParameter($name);
     }
 }
